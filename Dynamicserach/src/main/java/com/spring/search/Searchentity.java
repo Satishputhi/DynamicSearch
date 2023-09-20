@@ -2,23 +2,20 @@ package com.spring.search;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Searchentity {
-	private String plan_name;
-	private String plan_status;
 	private String Gender;
-	private LocalDate start_date;
-	private LocalDate end_date;
-	public String getPlan_name() {
-		return plan_name;
-	}
-	public void setPlan_name(String plan_name) {
-		this.plan_name = plan_name;
-	}
-	public String getPlan_status() {
-		return plan_status;
-	}
-	public void setPlan_status(String plan_status) {
-		this.plan_status = plan_status;
+	private String planName;
+	
+	private String planStatus;
+	 @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private LocalDate startDate;
+	 @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private LocalDate endDate;
+	
+	public Searchentity() {
+		
 	}
 	public String getGender() {
 		return Gender;
@@ -26,31 +23,45 @@ public class Searchentity {
 	public void setGender(String gender) {
 		Gender = gender;
 	}
-	public LocalDate getStart_date() {
-		return start_date;
+	public String getPlanName() {
+		return planName;
 	}
-	public void setStart_date(LocalDate start_date) {
-		this.start_date = start_date;
+	public void setPlanName(String planName) {
+		this.planName = planName;
 	}
-	public LocalDate getEnd_date() {
-		return end_date;
+	public String getPlanStatus() {
+		return planStatus;
 	}
-	public void setEnd_date(LocalDate end_date) {
-		this.end_date = end_date;
+	public void setPlanStatus(String planStatus) {
+		this.planStatus = planStatus;
 	}
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+	
 	@Override
 	public String toString() {
-		return "Serachentity [plan_name=" + plan_name + ", plan_status=" + plan_status + ", Gender=" + Gender
-				+ ", start_date=" + start_date + ", end_date=" + end_date + "]";
+		return "Searchentity [Gender=" + Gender + ", planName=" + planName + ", planStatus=" + planStatus
+				+ ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
-	public Searchentity(String plan_name, String plan_status, String gender, LocalDate start_date, LocalDate end_date) {
+	public Searchentity(String gender, String planName, String planStatus, LocalDate startDate, LocalDate endDate) {
 		super();
-		this.plan_name = plan_name;
-		this.plan_status = plan_status;
 		Gender = gender;
-		this.start_date = start_date;
-		this.end_date = end_date;
+		this.planName = planName;
+		this.planStatus = planStatus;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
+	
 	
 
 }
